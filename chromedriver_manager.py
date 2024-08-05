@@ -159,7 +159,7 @@ class ChromeDriverManager:
         """
         转换版本号为短版本号
         """
-        return re.search(r'^[^.]*\.[^.]*\.', long_version).group(0)[:-3]
+        return long_version.split('.')[0]
 
     def __get_download_link(self, long_version, zipfile_name):
         """
@@ -181,6 +181,3 @@ class ChromeDriverManager:
                     return f'https://cdn.npmmirror.com/binaries/chrome-for-testing/{var}/{d_type}/{zipfile_name}'
 
 
-if __name__ == "__main__":
-    manager = ChromeDriverManager(output_dir=r'C:\Users\mk12327\Desktop\test\asd')
-    print(manager.match_driver('89.0.4389.23'))
